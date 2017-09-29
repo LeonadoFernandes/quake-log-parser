@@ -13,7 +13,8 @@ class GamesController {
 
   /**
    * GET /api/v1/games/{id}
-   * @param  {Parse} parse [description]
+   * Returns the game that have the specified ID
+   * @param  {Parse} parse The Parse Object
    */
   show (parse) {
     return (request, reply) => {
