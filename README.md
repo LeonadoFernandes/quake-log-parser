@@ -94,7 +94,7 @@ quake-log-parser
             "Mocinha"
         ],
         "kills": {
-            "Isgalamido": -3,
+            "Isgalamido": 4,
             "Mocinha": 0
         }
     }
