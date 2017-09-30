@@ -6,6 +6,7 @@ class Player {
     this.id = Player.getPlayerId(line)
     this.username = ''
     this.kills = 0
+    this.deadsByWorld = 0
   }
 
   /**
@@ -65,13 +66,18 @@ class Player {
     if (!!players) {
       currentGame.addKill()
       if (players[1] == USER_WORLD_ID) {
-        currentGame.players.get(players[2]).removeKill()
+        currentGame.players.get(players[2]).deadsByWorld++
       } else {
         currentGame.players.get(players[1]).addKill()
       }
     } else {
       console.log(`[WARNING] Could not find players to count kills (line: ${line})`)
     }
+  }
+
+  calcScore () {
+    const score = this.kills - this.deadsByWorld
+    return score < 0 ? 0 : score
   }
 
   /**
