@@ -20,9 +20,9 @@ describe('Parser', () => {
         'Zeh'
       ],
       kills: {
-        'Dono da Bola': -1,
+        'Dono da Bola': 0,
         'Isgalamido': 1,
-        'Zeh': -2
+        'Zeh': 0
       } 
     })
   })
