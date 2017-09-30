@@ -70,7 +70,7 @@ class Game {
   playersKills () {
     let result = {}
     this.players.forEach(player => {
-      result[player.username] = player.kills
+      result[player.username] = player.calcScore()
     })
     return result
   }
