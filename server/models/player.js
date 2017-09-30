@@ -96,7 +96,7 @@ class Player {
    * @return {void}
    */
   removeKill () {
-    this.kills--
+    this.kills -= this.kills > 0 ? 1 : 0
   }
   
   /**
