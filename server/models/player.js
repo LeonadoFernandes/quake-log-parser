@@ -14,18 +14,9 @@ class Player {
    * @return {string}      The player ID
    */
   static getPlayerId (line) {
-    const commandsRegex = {
-      'ClientConnect:': /ClientConnect: ([0-9]*)/,
-      'ClientUserinfoChanged:': /ClientUserinfoChanged: ([0-9]*)/
-    }
-    let playerId = 0
-    Object.entries(commandsRegex).forEach(([command, regex]) => {
-      if (line.indexOf(command) === 7) {
-        playerId = line.match(regex)[1]
-        return
-      }
-    })
-    return playerId
+    const regex = /Client(Connect|UserinfoChanged): ([0-9]*)/
+    let playerId = line.match(regex)
+    return !!playerId ? playerId[2] : 0
   }
 
   /**
