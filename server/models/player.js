@@ -75,6 +75,11 @@ class Player {
     }
   }
 
+  /**
+   * Calcs number of Player kills by subtracting
+   * the number of deads by world for your number of kills
+   * @return {integer} The number of Player kills
+   */
   calcScore () {
     const score = this.kills - this.deadsByWorld
     return score < 0 ? 0 : score
