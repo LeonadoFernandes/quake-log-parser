@@ -1,6 +1,6 @@
 class Game {
 
-  constructor (line='') {
+  constructor (line = '') {
     this.players = new Map()
     this.total_kills = 0
     this.hostname = this.version = ''

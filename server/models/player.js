@@ -2,7 +2,7 @@ const USER_WORLD_ID = 1022
 
 class Player {
 
-  constructor (line='') {
+  constructor ( line = '' ) {
     this.id = Player.getPlayerId(line)
     this.username = ''
     this.kills = 0
@@ -17,7 +17,7 @@ class Player {
   static getPlayerId (line) {
     const regex = /Client(Connect|UserinfoChanged): ([0-9]*)/
     let playerId = line.match(regex)
-    return !!playerId ? playerId[2] : 0
+    return playerId ? playerId[2] : 0
   }
 
   /**
@@ -42,7 +42,7 @@ class Player {
     let currentGame = parser.getCurrentGame()
     let player = currentGame.getPlayerById(Player.getPlayerId(line))
 
-    if (!!player) {
+    if (player) {
       player.update(line)
     } else {
       console.log(`[WARNING] Could not find player by ID (line: ${line})`)
@@ -63,7 +63,7 @@ class Player {
       , players = line.match(regex) // players[1] => Killer user ID, players[2] => Loser user ID
     ;
 
-    if (!!players) {
+    if (players) {
       currentGame.addKill()
       if (players[1] == USER_WORLD_ID) {
         currentGame.players.get(players[2]).deadsByWorld++
@@ -98,7 +98,8 @@ class Player {
    * @return {void}
    */
   removeKill () {
-    this.kills -= this.kills > 0 ? 1 : 0
+    const killsToBeRemoved = this.kills > 0 ? 1 : 0
+    this.kills -= killsToBeRemoved
   }
   
   /**

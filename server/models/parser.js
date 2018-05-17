@@ -18,7 +18,7 @@ class Parser {
   }
 
   /**
-   * 
+   * Adds new game to games collection
    * @param  {Game} game The new game
    * @return {[type]}      [description]
    */
